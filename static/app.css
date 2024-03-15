@@ -1,0 +1,37 @@
+.order1 {
+  background-color: #77A6CF;
+  height: 914px;
+}
+
+.order-2 {
+  background-color: white;
+  height: 914px;
+}
+
+nav {
+  color: white;
+}
+
+.toggle{
+  color: #77A6CF;
+  border-color:  #77A6CF;
+}
+
+.main-head {
+  color: white;
+}
+
+#twobutton {
+  color: black;
+  background-color: white;
+  border-radius: 40px
+  box-sizing: border-box;
+}
+
+#infotext {
+  color: black;
+}
+
+.two-button-head, .navbar-brand, .navbar-nav li a {
+  color: #77A6CF;
+}
