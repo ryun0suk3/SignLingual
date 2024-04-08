@@ -1,30 +1,75 @@
 .order1 {
-  background-color: #77A6CF;
+  background-color: #0c6980;
   height: 914px;
 }
 
 .order-2 {
-  background-color: white;
+  background-color: #F7EDDE;
   height: 914px;
 }
 
+/* #284B63 og colour */
+
 nav {
-  color: white;
+  color: #F7EDDE;
+}
+
+#welcomeimg {
+  width: 450px;
+  
+}
+
+.welcimg {
+  display: flex;
+  justify-content: center;
+}
+
+
+#whitebox {
+  background-color: white;
+  margin: 50px;
+  margin-top: 0px;
+  box-sizing: border-box;
+  border: 1px solid white;
+  border-radius: 20px;
+  /* margin-right: 10px; */
+  /* height: 500px; */
+  
+}
+
+#s2sbutt {
+  background-color: #0c6980;
+  border: 0px;
+  margin: 5px;
+  padding: 10px;
+}
+
+button:hover{
+  transform: scale(1.15);
+  transition: all 0.25s ease-in-out;
+}
+
+#whitebox-text {
+  margin-top: 15px;
+  color: #0c6980;
+  display: block;
 }
 
 .toggle{
-  color: #77A6CF;
-  border-color:  #77A6CF;
+  color: #0c6980;
+  border-color:  #0c6980;
 }
 
-.main-head {
-  color: white;
+#main-head {
+  color: #F7EDDE;
+  transform: scale(1.5);
+  margin-bottom: 35px;
 }
 
 #twobutton {
   color: black;
-  background-color: white;
-  border-radius: 40px
+  background-color: #F7EDDE;
+  border-radius: 40px;
   box-sizing: border-box;
 }
 
@@ -33,5 +78,31 @@ nav {
 }
 
 .two-button-head, .navbar-brand, .navbar-nav li a {
-  color: #77A6CF;
+  color: #0c6980;
 }
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rubik {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.martel-sans {
+  font-family: "Martel Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
