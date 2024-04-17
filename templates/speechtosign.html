@@ -46,16 +46,16 @@
     </div>
   </nav>
 
-    <h1 class="display-1 text-center text-white mt-5">Speech to Sign</h1>
+    <h1 class="display-1 text-center text-white mt-5 mb-5 poppins-thin" id="main-head">Speech to Sign</h1>
     
 
-    <div class="container mx-0 p-3 d-flex flex-row justify-content-center" id="whitebox">
-        <form action="" method="post">
+    <div class="container p-3" id="whitebox">
+        <form action="" method="post" id="s2sform">
             {% if message is defined and message %}
                 <div class="alert alert-warning">{{ message }}</div>
             {% endif %}
-            <div class="form-group text-center p-3">
-                <h3 class="text-center" id="whitebox-text">Enter a sentence</h3>
+            <div class="form-group text-center px-4 pt-3">
+                <h3 class="text-center mb-4" id="whitebox-text">Enter a sentence:</h3>
                 <input type="letter" class="form-control mb-3" id="letter" name="letter" placeholder="">
                 <button type="submit" class="btn btn-secondary text-center px-3" id="s2sbutt" >Submit</button>
             </div>    
@@ -69,8 +69,8 @@
     <div>
         {% for word in test %}
             <div class="word-container">
-                <h3 class="text-white">{{ ''.join(word) }}</h3> 
-                <div class="word-images">
+                <h3 class="text-white text-center">{{ ''.join(word) }}</h3> 
+                <div class="word-images text-center">
                     {% for t in word %}
                         <div class="single-letter">
                             <img class="letters" src="{{ url_for('static', filename=t + '.jpg') }}" height="200" width="100">
