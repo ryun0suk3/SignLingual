@@ -8,6 +8,7 @@ body, html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: #0c6980;
 }
 
 .order-2 {
@@ -45,8 +46,18 @@ nav {
   margin-right: auto;
   /* margin-right: 10px; */
   /* height: 500px; */
-  
+
 }
+
+#whitebox-s2s {
+  background-color: white;
+  margin: 50px auto 0 auto; /* Set top margin to 50px and center horizontally */
+  /* padding: 20px; Add padding for better spacing */
+  box-sizing: border-box;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
 
 #s2sbutt {
   background-color: #0e7c97;
@@ -117,3 +128,16 @@ button:hover{
   font-style: normal;
 }
 
+/* speechtosign code */
+.word-container {
+  margin-bottom: 20px;
+  /* border: 5px solid black; */
+}
+
+.word-images .single-letter {
+  display: inline-block;
+}
+
+.letters {
+  border: 2px solid white;
+}

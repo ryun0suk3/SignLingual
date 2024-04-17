@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify,request
 # from camera import VideoCamera
 
 app = Flask(__name__)
@@ -22,6 +22,23 @@ def about():
 @app.route("/contact")
 def contact():
   return render_template("contact.html")
+
+@app.route("/speech-to-sign",methods=['GET','POST'])
+def speechtosign():
+  if request.method == 'POST':
+    tests = request.form['letter']
+    lis = []
+    for word in tests.split():
+      alphabet_list = list(word)
+      lis.append(alphabet_list)
+      # Convert string to list of characters
+        # print(lis)
+    return render_template("speechtosign.html", test=lis)
+  else:
+    return render_template("speechtosign.html", test=[])
+  # print(lis)
+
+
 
 
 
