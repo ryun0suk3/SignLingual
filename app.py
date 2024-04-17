@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, Response
+from flask import Flask, render_template, jsonify
 # from camera import VideoCamera
 
 app = Flask(__name__)
@@ -10,6 +10,20 @@ def home():
 @app.route("/login")
 def login():
   return render_template("login.html")
+
+@app.route("/register")
+def register():
+  return render_template("register.html")
+
+@app.route("/about")
+def about():
+  return render_template("about.html")
+
+@app.route("/contact")
+def contact():
+  return render_template("contact.html")
+
+
 
 # def gen(camera):
 #   while True:
@@ -24,4 +38,4 @@ def login():
 #                   mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', debug=True)
+  app.run(host='0.0.0.0', port='4999', debug=True)
