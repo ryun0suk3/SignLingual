@@ -3,6 +3,13 @@
   height: 914px;
 }
 
+body, html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .order-2 {
   background-color: #F7EDDE;
   height: 914px;
@@ -14,14 +21,15 @@ nav {
   color: #F7EDDE;
 }
 
-#welcomeimg {
+/* #welcomeimg {
   width: 450px;
   
 }
-
+ */
 .welcimg {
   display: flex;
   justify-content: center;
+  /* max-width: 500px; */
 }
 
 
@@ -32,13 +40,16 @@ nav {
   box-sizing: border-box;
   border: 1px solid white;
   border-radius: 20px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
   /* margin-right: 10px; */
   /* height: 500px; */
   
 }
 
 #s2sbutt {
-  background-color: #0c6980;
+  background-color: #0e7c97;
   border: 0px;
   margin: 5px;
   padding: 10px;
