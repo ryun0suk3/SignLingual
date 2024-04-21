@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, Request
+from flask import Flask, render_template, jsonify, request
 # from camera import VideoCamera
 
 
@@ -19,7 +19,7 @@ def login():
         email = request.form['loginEmail']
         password = request.form['loginPassword']
         # Check if the user exists in the database
-        user = User.query.filter_by(email=email, password=password).first()
+        user = user.query.filter_by(email=email, password=password).first()
         if user:
             return 'Login successful'
         else:
