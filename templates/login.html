@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login/Register - SignLingual</title>
+  <title>Login - SignLingual</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -51,16 +51,6 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
-          <div class="card-header bg-white text-primary">
-            <ul class="nav nav-tabs card-header-tabs" id="loginRegisterTabs">
-              <li class="nav-item">
-                <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="register-tab" data-bs-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
-              </li>
-            </ul>
-          </div>
           <div class="card-body" style="background-color: white;">
             <div class="tab-content" id="loginRegisterContent">
               <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
@@ -76,20 +66,8 @@
                   </div>
                   <button type="submit" class="btn btn-primary">Login</button>
                 </form>
-              </div>
-              <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                <form>
-                  <div class="mb-3">
-                    <label for="registerEmail" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="registerEmail" aria-describedby="registerEmailHelp" style="background-color: white;">
-                    <div id="registerEmailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="registerPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="registerPassword" style="background-color: white;">
-                  </div>
-                  <button type="submit" class="btn btn-outline-dark">Register</button>
-                </form>
+                <h4 class="mt-4">Haven't registered yet? </h4>
+                <a href="{{ url_for('register') }}">Register now!</a>
               </div>
             </div>
           </div>
