@@ -1,4 +1,7 @@
-from flask import Flask, render_template, jsonify, request
+
+from flask import Flask, render_template, jsonify
+
+from flask import Flask, render_template, jsonify,request
 # from camera import VideoCamera
 
 
@@ -19,7 +22,7 @@ def login():
         email = request.form['loginEmail']
         password = request.form['loginPassword']
         # Check if the user exists in the database
-        user = user.query.filter_by(email=email, password=password).first()
+        user = User.query.filter_by(email=email, password=password).first()
         if user:
             return 'Login successful'
         else:
@@ -47,9 +50,12 @@ def speechtosign():
     for word in tests.split():
       alphabet_list = list(word)
       lis.append(alphabet_list)
+      # Convert string to list of characters
+        # print(lis)
     return render_template("speechtosign.html", test=lis)
   else:
     return render_template("speechtosign.html", test=[])
+  # print(lis)
 
 
 
