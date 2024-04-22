@@ -154,13 +154,14 @@ button:hover{
 
 }
 .second{
-  padding: 80px 10% 20px 8%;
+  padding: 80px 12% 20px 12%;
   background-color: white;
 
 }
 .secondpart{
   display: flex;
   justify-content: center;
+  padding-bottom: 50px;
 }
 .introtitle{
   color: #0c6980;
@@ -177,6 +178,9 @@ button:hover{
   font-size: 1.3rem;
   line-height: 40px;
   color: #07333e;
+}
+.introductiontext2{
+  padding-bottom: 60px;
 }
 #sugg{
   background-color: white;
@@ -197,4 +201,72 @@ button:hover{
 .btn-secondary.suggestion {
   margin: 5px; /* Add margin around buttons for spacing */
 }
+.usecases{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  padding: 30px 18% 20px 15%;
+  gap: 20px;
+}
+.usecases h1,.usecases p{
+  color: white;
+}
+.usecases h1{
+  font-size: 2.3rem;
+}
+.usecases p{
+  font-size: 1.3rem;
+  line-height: 40px;
+  padding-bottom: 30PX;
+}
+.usecases img{
+  width: 200px;
+}
+.usecases>p{
+  font-size: 5rem;
+  padding-bottom: 50px;
+  line-height: 80px;
+}
+.last{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: white;
+  padding: 80px 12% 100px 12%;
+  gap: 50px;
+}
+.last img{
+  width: 100%;
+  height: auto;
+}
+.last h1,.last p{
+  color: #07333e;
 
+}
+.last h1{
+  padding-top: 20px;
+  font-size: 3.3rem;
+}
+.last p{
+  padding-top: 24px;
+  font-size: 1.4rem;
+  line-height: 40px;
+}
+@media (max-width: 768px) {
+  .last {
+    grid-template-columns: 1fr; /* One column layout */
+  }
+}
+footer p{
+  color: white;
+  font-size: 1.7rem;
+}
+footer p,h5,li,a{
+  color: white;
+  text-decoration: none;
+}
+#sign{
+  padding-bottom: 20px;
+}
+footer h5{
+  padding-bottom: 20px;
+}
