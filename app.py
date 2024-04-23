@@ -1,8 +1,77 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, Response
 from flask_mysqldb import MySQL
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+import cv2
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.preprocessing import image
+
+model = tf.keras.models.load_model('signlingual_final_tanvi.h5')
+LABELS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
+          'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
+          'del', 'space', 'nothing']
+
+def recognize(img):
+    img = np.resize(img, (224,224,3))
+    img = np.expand_dims(img, axis=0)
+    img = np.asarray(img)
+    img = img/255.0
+    classes = model.predict(img)
+    pred_id = np.argmax(classes)  
+    return pred_id
+
+
+
+global output
+output=""
+cam = cv2.VideoCapture(0)
+
+
+
+def gen():                          #generator
+    global img_name, char_op 
+    while(True):
+        success, frame=cam.read()    
+        rec_start=(100,160)
+        rec_end=(420,560)
+        rec_col=(255,0,0)
+        frame=cv2.rectangle(frame,rec_start,rec_end,rec_col,thickness=2)   
+        '''
+        sucess: 
+            boolean value. 
+            returns true if python is able to capture video
+        frame:
+            a numpy array that represents the first image captured by the the VideoCamera
+        '''
+        crop_sign=frame[rec_start[1]:rec_end[1], rec_start[0]:rec_end[0]]
+        # img=cv2.cvtColor(crop_sign, cv2.COLOR_BGR2GRAY)
+        # img = cv2.GaussianBlur(img, (5,5), 0)
+        pred_img = cv2.resize(crop_sign, (224,224), interpolation=cv2.INTER_AREA)
+        y_pred = recognize(pred_img)
+        # char_op = chr(y_pred + 65)
+        char_op = LABELS[y_pred]
+        cv2.rectangle(frame, (80,600), (680,680), (0,0,0), -1)
+        cv2.putText(frame, "Predicted Sign: "+char_op, (100,660), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,0), 2) 
+
+        if not success:
+            print("Capture not Successful")
+            break
+        else:
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  
+            # concat frame one by one and show result
+            
+            #yield lets the execution to continue and generates from until alive
+
+def pr():
+    global output
+    output+=char_op
+    return(output)
+
+
 
 app = Flask(__name__)
 app.secret_key = 'test'
@@ -71,6 +140,7 @@ def register():
     elif request.method == 'POST':
         message = 'Please Fill all Details'
     return render_template('register.html', message=message) 
+
 @app.route("/about")
 def about():
     return render_template("about.html")
@@ -90,6 +160,30 @@ def speechtosign():
     else:
         lis = []
     return render_template("speechtosign.html", test=lis)
+
+@app.route('/sign-to-speech')  #landing
+def signtospeech():
+    return render_template("signtospeech.html")
+
+@app.route('/sign-to-speech/video')
+def video():
+    return Response(gen(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/sign-to-speech/capture')
+def capture():
+    return render_template("signtospeech.html", output=pr())
+
+@app.route('/sign-to-speech/reset')
+def reset():
+    global output
+    output=""
+    return render_template("signtospeech.html", output=output)
+
+@app.route('/sign-to-speech/del_last')
+def del_last():
+    global output
+    output=output[:-1]
+    return render_template("signtospeech.html", output=output)
 
 
 if __name__ == "__main__":
