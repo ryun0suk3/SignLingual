@@ -26,11 +26,11 @@ def recognize(img):
 
 global output
 output=""
-cam = cv2.VideoCapture(0)
 
 
 
 def gen():                          #generator
+    cam = cv2.VideoCapture(0)
     global img_name, char_op 
     while(True):
         success, frame=cam.read()    
