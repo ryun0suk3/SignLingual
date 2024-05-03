@@ -289,3 +289,83 @@ footer p,h5,li,a{
 footer h5{
   padding-bottom: 20px;
 }
+.title, .gridd{
+  color: white;
+  padding: 80px 12% 10px 12%;
+}
+.gridd{
+  padding: 80px 12% 30px 12%;
+  gap: 70px;
+
+}
+.gridd img{
+  width: 350px;
+  height: 350px;
+}
+.gridd p{
+  font-size: 1.7rem;
+
+  padding-bottom: 50px;
+  line-height: 30px;
+}
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black; /* White underline */
+  background-color: transparent;
+  padding: 8px 0;
+  color:black; /* White text */
+  font-size: 16px;
+  transition: border-bottom-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-bottom-color: #fff; /* White underline on focus */
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group input[type="submit"] {
+  background-color:#0e7c97;
+  color:white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+.cards{
+  display: flex;
+  flex-direction: row;justify-content: center;
+  gap: 20px;
+  padding-top: 50px;
+}

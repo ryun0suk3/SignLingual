@@ -7,6 +7,12 @@ import cv2
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
+import speech_recognition as sr
+
+recognizer = sr.Recognizer()
+
+
+
 
 model = tf.keras.models.load_model('signlingual_final_tanvi.h5')
 LABELS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
@@ -151,6 +157,7 @@ def contact():
 
 @app.route("/speech-to-sign",methods=['GET','POST'])
 def speechtosign():
+    
     if request.method == 'POST':
         tests = request.form['letter']
         lis = []
