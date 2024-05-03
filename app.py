@@ -86,7 +86,8 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'user-system'
-app.config['MYSQL_PORT'] = 3306
+app.config['MYSQL_PORT'] = 3308
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 
@@ -105,7 +106,7 @@ def login():
         user = cursor.fetchone()
         if user:
             session['loggedin'] = True
-            #session['userid'] = user['userid']
+            session['userid'] = user['userid']
             session['name'] = user['name']
             session['email'] = user['email']
             message = 'Logged in successfully'
@@ -140,7 +141,7 @@ def register():
         elif not username or not password or not email:
             message = 'Please Fill all Details'
         else:
-            cursor.execute('INSERT INTO user VALUES(%s,%s,%s)', (username, email, password, ))
+            cursor.execute('INSERT INTO user VALUES(NULL,%s,%s,%s)', (username, email, password, ))
             mysql.connection.commit()      
             message = 'Register Successfully!!'
     elif request.method == 'POST':
