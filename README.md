@@ -13,8 +13,8 @@
 
 SignLingual is a full-stack web application designed to bridge the communication gap between sign language users and those who don't understand it. Leveraging the power of machine learning, it offers two primary functionalities:
 
-* **Sign to Text:** Users can input sign language (potentially through video or image upload - *you can elaborate on the input method if implemented*) and receive a text translation.
-* **Text to Sign:** Users can input text and receive a visual representation of the corresponding sign language (potentially through images or animations - *you can elaborate on the output method if implemented*).
+* **Sign to Text:** Users can input sign language and receive a text translation.
+* **Text to Sign:** Users can input text and receive a visual representation of the corresponding sign language.
 
 The application is built with a Python Flask backend serving a REST API, a machine learning model for ASL translation, and a user-friendly interface crafted with the Bootstrap framework.
 
