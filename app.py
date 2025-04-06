@@ -33,10 +33,10 @@ def recognize(img):
 global output
 output=""
 
+cam = cv2.VideoCapture(0)
 
 
 def gen():                          #generator
-    cam = cv2.VideoCapture(0)
     global img_name, char_op 
     while(True):
         success, frame=cam.read()    
@@ -74,6 +74,9 @@ def gen():                          #generator
 
 def pr():
     global output
+    if char_op == 'space':
+        output+=' '
+        return output
     output+=char_op
     return(output)
 
@@ -169,25 +172,25 @@ def speechtosign():
         lis = []
     return render_template("speechtosign.html", test=lis)
 
-@app.route('/sign-to-speech')  #landing
+@app.route('/sign-to-text')  #landing
 def signtospeech():
     return render_template("signtospeech.html")
 
-@app.route('/sign-to-speech/video')
+@app.route('/sign-to-text/video')
 def video():
     return Response(gen(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/sign-to-speech/capture')
+@app.route('/sign-to-text/capture')
 def capture():
     return render_template("signtospeech.html", output=pr())
 
-@app.route('/sign-to-speech/reset')
+@app.route('/sign-to-text/reset')
 def reset():
     global output
     output=""
     return render_template("signtospeech.html", output=output)
 
-@app.route('/sign-to-speech/del_last')
+@app.route('/sign-to-text/del_last')
 def del_last():
     global output
     output=output[:-1]

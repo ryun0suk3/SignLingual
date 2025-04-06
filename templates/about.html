@@ -35,21 +35,23 @@
             <a class="nav-link" href="{{ url_for('home') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login') }}">Logout</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+
   <div class="title">
-    <h1 style="font-size: 3rem;">About us</h1>
+    <h1 class="display-1 text-center text-white pt-5 poppins-thin" id="main-head">About Us</h1>
+    
   </div>
   <div class="gridd">
     <div>
@@ -88,7 +90,7 @@
     </div>
   </div>
 
-  <footer class="bd-footer bg-body-primary">
+  <footer class="bd-footer bg-body-primary" id="white-footer">
     <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
       <div class="row">
         <p id="sign">SignLingual</p>

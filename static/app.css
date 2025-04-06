@@ -35,6 +35,11 @@ nav {
   /* max-width: 500px; */
 }
 
+#white-footer {
+  background-color: white;
+  color: black;
+}
+
 
 #whitebox {
   background-color: white;
